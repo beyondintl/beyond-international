@@ -1,0 +1,173 @@
+/pages
+  └── index.js
+/styles
+  └── globals.css
+/package.json
+/next.config.js
+{
+  "name": "beyond-international",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "framer-motion": "^11.0.0"
+  }
+}
+import { motion } from "framer-motion";
+
+export default function Home() {
+  return (
+    <div>
+      {/* HERO */}
+      <section className="hero">
+        <motion.h1
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+        >
+          Anything.<br />Anywhere.<br />Even One Unit.
+        </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.6 }}
+        >
+          We source, document, ship, and deliver any product —
+          from any industry — globally.
+        </motion.p>
+
+        <a href="#contact" className="btn">Tell Us What You Need</a>
+      </section>
+
+      {/* PROBLEMS */}
+      <section>
+        <h2>Problems We Solve</h2>
+        <div className="grid">
+          {[
+            "MOQ Restrictions",
+            "Supplier Delays",
+            "Import & Export Confusion",
+            "Industry Limitations",
+            "No Doorstep Delivery",
+            "Long Lead Times"
+          ].map((item, i) => (
+            <motion.div
+              className="card"
+              key={i}
+              whileHover={{ scale: 1.05 }}
+            >
+              {item}
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* WHAT WE DO */}
+      <section>
+        <h2>What We Do</h2>
+        <div className="grid">
+          <div className="card">MOQ Starts From 1</div>
+          <div className="card">Any Product · Any Industry</div>
+          <div className="card">Air Freight (Urgent)</div>
+          <div className="card">Sea Freight (Bulk)</div>
+          <div className="card">End‑to‑End Documentation</div>
+          <div className="card">Doorstep Delivery</div>
+        </div>
+      </section>
+
+      {/* INDUSTRIES */}
+      <section>
+        <h2>Industries We Serve</h2>
+        <div className="industry">
+          <span>Medical</span>
+          <span>Hospitality</span>
+          <span>Industrial</span>
+          <span>Machinery</span>
+          <span>Marine</span>
+          <span>Consumer</span>
+          <span>SMEs</span>
+          <span>Individuals</span>
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact">
+        <h2>Start Sourcing Without Limits</h2>
+        <p>Tell us what you need. Even one unit.</p>
+        <a className="btn" href="mailto:info@beyondinternational.com">
+          Contact Us
+        </a>
+      </section>
+
+      <footer>
+        © Beyond International — Global Sourcing Intelligence
+      </footer>
+    </div>
+  );
+}
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #05080f;
+  color: white;
+}
+
+section {
+  padding: 80px 10%;
+}
+
+.hero {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #0b1c3a, #05080f);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 { font-size: 3.5rem; }
+h2 { margin-bottom: 20px; }
+
+.btn {
+  margin-top: 30px;
+  display: inline-block;
+  padding: 14px 28px;
+  background: #00e5ff;
+  color: black;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: #0b1328;
+  padding: 25px;
+  border-radius: 16px;
+}
+
+.industry span {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 18px;
+  background: #0b1328;
+  border-radius: 20px;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  background: #02040a;
+  opacity: 0.8;
+}
